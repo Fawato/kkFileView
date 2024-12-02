@@ -21,6 +21,7 @@ public class ServerMain {
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
+        String password = "1234";
         ConfigurableApplicationContext context = new SpringApplicationBuilder(ServerMain.class)
                 .logStartupInfo(false)
                 .run(args);
