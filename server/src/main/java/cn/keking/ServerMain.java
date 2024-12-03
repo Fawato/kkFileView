@@ -22,16 +22,18 @@ public class ServerMain {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         String password = "1234";
-        ConfigurableApplicationContext context = new SpringApplicationBuilder(ServerMain.class)
-                .logStartupInfo(false)
-                .run(args);
-        stopWatch.stop();
         ServerProperties serverProperties = context.getBean(ServerProperties.class);
         Integer port = serverProperties.getPort();
         ServerProperties.Servlet servlet = serverProperties.getServlet();
         String contextPath = servlet.getContextPath();
         String urlSuffix = StringUtils.isBlank(contextPath)? String.valueOf(port):port+contextPath;
         logger.info("kkFileView 服务启动完成，耗时:{}s，演示页请访问: http://127.0.0.1:{} ", stopWatch.getTotalTimeSeconds(), urlSuffix);
+
+
+
+
+        
+        
     }
 
 }
