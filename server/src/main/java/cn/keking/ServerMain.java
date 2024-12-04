@@ -21,7 +21,15 @@ public class ServerMain {
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        String password = "1234";
+        String password5 = "1234";
+        String password4 = "1234";
+        String password3 = "1234";
+        String password2 = "1234";
+        String password1 = "1234";
+        ConfigurableApplicationContext context = new SpringApplicationBuilder(ServerMain.class)
+                .logStartupInfo(false)
+                .run(args);
+        stopWatch.stop();
         ServerProperties serverProperties = context.getBean(ServerProperties.class);
         Integer port = serverProperties.getPort();
         ServerProperties.Servlet servlet = serverProperties.getServlet();
