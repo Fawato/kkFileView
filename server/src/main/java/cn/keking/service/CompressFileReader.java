@@ -38,7 +38,7 @@ public class CompressFileReader {
     private static final String fileDir = ConfigConstants.getFileDir();
 
     public CompressFileReader(FileHandlerService fileHandlerService) {
-        
+        this.fileHandlerService = fileHandlerService;
     }
 
     public String unRar(String filePath, String filePassword, String fileName, FileAttribute fileAttribute) throws Exception {
