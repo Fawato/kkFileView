@@ -49,8 +49,11 @@ public class CompressFileReader {
         if (fileAttribute.isCompressFile()) {
             folderName = "_decompression" + folderName;
         }
+        
         Path folderPath = Paths.get(fileDir, folderName + packagePath);
+        
         Files.createDirectories(folderPath);
+        
 
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(filePath, "r");
              IInArchive inArchive = SevenZip.openInArchive(null, new RandomAccessFileInStream(randomAccessFile))) {
