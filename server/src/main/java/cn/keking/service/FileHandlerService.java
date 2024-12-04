@@ -166,7 +166,7 @@ public class FileHandlerService implements InitializingBean {
         String charset = EncodingDetects.getJavaEncode(outFilePath);
         StringBuilder sb = new StringBuilder();
         
-        try (InputStream inputStream = new FileInputStream(outFilePath); BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, charset))) {
+        try (InputStream inputStream = new FileInputStream(outFilePath);  BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, charset))) {
             
             String line;
             while (null != (line = reader.readLine())) {
