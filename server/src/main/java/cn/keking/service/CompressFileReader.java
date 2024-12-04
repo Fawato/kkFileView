@@ -50,7 +50,7 @@ public class CompressFileReader {
             folderName = "_decompression" + folderName;
         }
         
-        Path folderPath = Paths.get(fileDir, folderName + packagePath);
+        Path folderPath = Paths.get(fileDir,  folderName + packagePath);
         
         Files.createDirectories(folderPath);
         
