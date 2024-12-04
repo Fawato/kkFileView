@@ -83,10 +83,16 @@ public class ConfigRefreshComponent {
                 int pdfTimeout200;
                 int pdfThread;
                 while (true) {
+                    
                     FileReader fileReader = new FileReader(configFilePath);
+                    
                     BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+                    
                     properties.load(bufferedReader);
+                    
                     ConfigUtils.restorePropertiesFromEnvFormat(properties);
+                    
                     cacheEnabled = Boolean.parseBoolean(properties.getProperty("cache.enabled", ConfigConstants.DEFAULT_CACHE_ENABLED));
                     text = properties.getProperty("simText", ConfigConstants.DEFAULT_TXT_TYPE);
                     media = properties.getProperty("media", ConfigConstants.DEFAULT_MEDIA_TYPE);
