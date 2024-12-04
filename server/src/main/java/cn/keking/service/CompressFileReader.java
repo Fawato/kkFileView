@@ -45,18 +45,18 @@ public class CompressFileReader {
         List<String> imgUrls = new ArrayList<>();
         String baseUrl = BaseUrlFilter.getBaseUrl();
         String packagePath = "_";
-        String folderName = filePath.replace(fileDir, ""); //修复压缩包 多重目录获取路径错误
-        if (fileAttribute.isCompressFile()) {
-            folderName = "_decompression" + folderName;
-        }
+        String folderName = filePath.replace(fileDir, "");  //修复压缩包 多重目录获取路径错误
+        if (fileAttribute.isCompressFile()) { 
+            folderName = "_decompression" + folderName; 
+        } 
         
         Path folderPath = Paths.get(fileDir,  folderName + packagePath);
         
-        Files.createDirectories(folderPath);
+        Files.createDirectories(folderPath );
         
 
-        try (RandomAccessFile randomAccessFile = new RandomAccessFile(filePath, "r");
-             IInArchive inArchive = SevenZip.openInArchive(null, new RandomAccessFileInStream(randomAccessFile))) {
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile(filePath, "r"); 
+             IInArchive inArchive = SevenZip.openInArchive(null, new RandomAccessFileInStream(randomAccessFile))) { 
 
             ISimpleInArchive simpleInArchive = inArchive.getSimpleInterface();
             for (final ISimpleInArchiveItem item : simpleInArchive.getArchiveItems()) {
