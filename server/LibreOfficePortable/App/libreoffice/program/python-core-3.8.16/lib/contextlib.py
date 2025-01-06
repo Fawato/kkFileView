@@ -309,12 +309,16 @@ class _RedirectStream(AbstractContextManager):
         self._old_targets = []
 
     def __enter__(self):
-        self._old_targets.append(getattr(sys, self._stream))
-        setattr(sys, self._stream, self._new_target)
-        return self._new_target
+               
+        self._old_targets.append(getattr(sys, self._stream)) 
+               
+        setattr(sys, self._stream, self._new_target) 
+               
+        return self._new_target 
+               
 
     def __exit__(self, exctype, excinst, exctb):
-        setattr(sys, self._stream, self._old_targets.pop())
+        setattr(sys, self._stream, self._old_targets.pop()) 
 
 
 class redirect_stdout(_RedirectStream):
